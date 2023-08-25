@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const blogModel = require("./schemas/blogSchema");
 const bodyParser = require("body-parser");
 const multer = require("multer");
+const cors = require("cors");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./assets/");
+    cb(null, "../frontend/public/assets");
   },
   filename: function (req, file, cb) {
     cb(null, file.fieldname + "-" + Date.now());
@@ -26,6 +27,7 @@ async function main() {
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 // get requests
 
@@ -58,9 +60,9 @@ app.post("/blogs", upload.single("blogPhoto"), async (req, res) => {
   const blog = {
     title: req.body.title,
     description: req.body.description,
-    img: req.file.path,
+    img: `../assets/${req.file.filename}`,
+    content: req.body.content,
   };
-  console.log(req);
   try {
     const newBlog = new blogModel(blog);
     await newBlog.save();

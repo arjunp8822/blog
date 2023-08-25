@@ -1,0 +1,40 @@
+.create-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-form input {
+    width: 90%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.create-form textarea {
+    width: 90%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    resize: none;
+    height: 70vh;
+}
+
+.create-button-container {
+    width: 90%;
+    display: flex;
+}
+
+.create-button-container button {
+    width: 100px;
+    height: 30px;
+    display: flex;
+    border: none;
+    background-color: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
