@@ -1,3 +1,63 @@
 .content {
     white-space: pre-line;
 }
+
+.blog-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 400px);
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-card {
+    width: 400px;
+    height: 400px;
+    background-color: rgb(233, 233, 233);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.blog-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.blog-card img:hover {
+    cursor: pointer;
+}
+
+.blog-card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-card h3 {
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.blog-card-category {
+    font-size: 13px;
+    font-weight: 400;
+    color: grey;
+}
+
+.blog-card-date {
+    font-size: 13px;
+    font-weight: 400;
+    color: grey;
+}
+
+.blog-card h5 {
+    font-weight: 400;
+    font-size: 16px;
+    color: grey;
+}
