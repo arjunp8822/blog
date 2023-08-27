@@ -1,0 +1,19 @@
+.blog-post {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 40px;
+}
+
+.blog-post-img-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.blog-post img {
+    width: 100%;
+    height: min(500px, 40vh);
+    object-fit: contain;
+}

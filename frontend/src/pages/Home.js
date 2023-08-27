@@ -18,7 +18,6 @@ const Home = () => {
 
   return (
     <div className="container">
-      Blog Home
       <div className="blog-card-container">
         {blogData.map((blog) => (
           <article key={blog._id} className="blog-card">

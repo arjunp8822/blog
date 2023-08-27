@@ -5,6 +5,7 @@ nav {
     height: 60px;
     padding: 0px 40px;
     background-color: grey;
+    width: 100%;
 }
 
 nav ul {
