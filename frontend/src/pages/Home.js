@@ -25,8 +25,14 @@ const Home = () => {
               <img src={blog.img} />
             </Link>
             <div className="blog-card-main">
-              <span className="blog-card-category">JavaScript</span>
-              <span className="blog-card-date">19 January 2023</span>
+              <span className="blog-card-category">{blog.category}</span>
+              <span className="blog-card-date">
+                {new Date(blog.updatedAt).toLocaleDateString("en-us", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </span>
             </div>
             <Link to={`/${blog._id}`}>
               <h3>{blog.title}</h3>

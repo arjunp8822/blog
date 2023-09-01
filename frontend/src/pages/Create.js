@@ -6,6 +6,7 @@ import axios from "axios";
 const Create = () => {
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
+  const [category, setCategory] = useState("HTML");
   const [file, setFile] = useState(null);
   const [content, setContent] = useState(null);
 
@@ -16,6 +17,7 @@ const Create = () => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
+    formData.append("category", category);
     formData.append("blogPhoto", file);
     formData.append("content", content);
     try {
@@ -46,6 +48,20 @@ const Create = () => {
           placeholder="Description"
           onChange={(e) => setDescription(e.target.value)}
         />
+        <label htmlFor="category">Choose a category:</label>
+        <select
+          name="category"
+          id="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="React">React</option>
+          <option value="Personal">Personal</option>
+          <option value="Other">Other</option>
+        </select>
         <input
           type="file"
           filename={file}

@@ -62,6 +62,7 @@ app.post("/blogs", upload.single("blogPhoto"), async (req, res) => {
     description: req.body.description,
     img: `../assets/${req.file.filename}`,
     content: req.body.content,
+    category: req.body.category,
   };
   try {
     const newBlog = new blogModel(blog);
