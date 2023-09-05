@@ -3,23 +3,37 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .create-form input {
     width: 90%;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid black;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+.category-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    padding: 10px;
+    gap: 20px;
+    font-size: 16px;
 }
 
 .create-form textarea {
     width: 90%;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid black;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: #fff;
     resize: none;
-    height: 70vh;
+    height: 60vh;
+    font-size: 16px;
 }
 
 .create-button-container {
@@ -29,12 +43,14 @@
 
 .create-button-container button {
     width: 100px;
-    height: 30px;
+    height: 40px;
     display: flex;
     border: none;
-    background-color: none;
-    border-radius: 5px;
+    background: var(--blue-linear);
+    color: #fff;
+    border-radius: var(--border-radius);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 16px;
 }

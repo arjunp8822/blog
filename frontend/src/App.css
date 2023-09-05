@@ -53,3 +53,7 @@ h5 {
     font-size: 18px;
     color: var(--grey);
 }
+
+button:hover {
+    cursor: pointer;
+}
