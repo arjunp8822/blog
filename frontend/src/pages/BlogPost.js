@@ -21,6 +21,13 @@ const BlogPost = () => {
   };
 
   useEffect(() => {
+    setEditTitle(blog?.title);
+    setEditCategory(blog?.category);
+    setEditDescription(blog?.description);
+    setEditContent(blog?.content);
+  }, [blog]);
+
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -31,15 +38,27 @@ const BlogPost = () => {
   };
 
   const editHandler = async (e) => {
-    setEditTitle(blog?.title);
-    setEditCategory(blog?.category);
-    setEditDescription(blog?.description);
-    setEditContent(blog?.content);
-    console.log(editTitle, editCategory, editDescription, editContent);
+    e.preventDefault();
+    const updatedBlog = {
+      editTitle,
+      editCategory,
+      editDescription,
+      editContent,
+    };
+    try {
+      const response = await axios.put(
+        `http://localhost:4000/blogs/${id}`,
+        updatedBlog,
+        {
+          headers: { accept: "*/*", "Content-Type": "application/json" },
+        }
+      );
+    } catch (e) {
+      console.log(e);
+    }
+    navigate("/");
     setEditState(false);
   };
-
-  const editedPost = {};
 
   return (
     <div className="container blog-post">

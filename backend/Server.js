@@ -90,11 +90,14 @@ app.delete("/blogs/:id", async (req, res) => {
 app.put("/blogs/:id", async (req, res) => {
   const { id } = req.params;
   const updatedBlog = {
-    title: req.body.title,
-    description: req.body.description,
+    title: req.body.editTitle,
+    description: req.body.editDescription,
+    content: req.body.editContent,
+    category: req.body.editCategory,
   };
   try {
-    const update = await blogModel.findByIdAndUpdate(id, updatedBlog);
+    const updatedPost = await blogModel.findByIdAndUpdate(id, updatedBlog);
+    await updatedPost.save();
     return res.json({ message: "blog updated" });
   } catch (e) {
     console.log(e);
