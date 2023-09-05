@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     word-wrap: break-word;
+    background-color: var(--bg);
+    letter-spacing: 0.7px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -15,4 +17,39 @@ a {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
+}
+
+:root {
+    --bg: #e4e6ec;
+    --primary: #5c96e4;
+    --secondary: #7060e5;
+    --supp: #f1a070;
+    --font: #131313;
+    --nav-links: #7a7a7e;
+    --blue: #5271d3;
+    --blog-bg: #bad8f1;
+    --grey: rgb(68, 68, 68);
+    --light-grey: rgb(135, 135, 135);
+    --blue-linear: linear-gradient(270deg, rgba(102,199,246,1) 0%, rgba(82,113,211,1) 100%);
+
+    --border-radius: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, span, p, ul, li, a, div {
+    background-color: inherit;
+}
+
+h1 {
+    color: var(--font);
+    font-size: 60px;
+}
+
+h3 {
+    font-size: 22px;
+    color: var(--font);
+}
+
+h5 {
+    font-size: 18px;
+    color: var(--grey);
 }

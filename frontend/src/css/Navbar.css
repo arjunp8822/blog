@@ -2,9 +2,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 100px;
     padding: 0px 40px;
-    background-color: grey;
+    background-color: var(--bg);
     width: 100%;
 }
 
@@ -13,5 +13,30 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
+}
+
+nav ul li {
+    color: var(--nav-links);
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+nav ul li:hover {
+    cursor: pointer;
+    color: var(--blue);
+}
+
+.logo {
+    background: var(--blue-linear);
+    padding: 8px 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 600;
 }

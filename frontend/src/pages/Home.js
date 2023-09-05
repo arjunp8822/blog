@@ -18,10 +18,11 @@ const Home = () => {
 
   return (
     <div className="container">
+      <h1>AP Blog</h1>
       <div className="blog-card-container">
         {blogData.map((blog) => (
           <article key={blog._id} className="blog-card">
-            <Link to={`/${blog._id}`}>
+            <Link to={`/${blog._id}`} className="img-overlay">
               <img src={blog.img} />
             </Link>
             <div className="blog-card-main">

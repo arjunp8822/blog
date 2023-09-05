@@ -14,12 +14,12 @@
 
 .blog-card {
     width: min(400px, 100%);
-    height: 400px;
-    background-color: rgb(233, 233, 233);
+    height: 450px;
+    background-color: none;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 10px;
-    justify-content: center;
     padding: 20px;
     border-radius: 5px;
 }
@@ -29,6 +29,15 @@
     height: 280px;
     object-fit: cover;
     border-radius: 5px;
+    opacity: 0.2;
+    filter: grayscale(100%);
+}
+
+.img-overlay {
+    height: 280px;
+    border-radius: 5px;
+    background: var(--blue-linear);
+    z-index: 2;
 }
 
 .blog-card img:hover {
@@ -43,25 +52,22 @@
 
 .blog-card h3 {
     text-transform: capitalize;
-    font-size: 18px;
 }
 
 .blog-card-category {
     font-size: 13px;
     font-weight: 400;
-    color: grey;
+    color: var(--light-grey);
 }
 
 .blog-card-date {
     font-size: 13px;
     font-weight: 400;
-    color: grey;
+    color: var(--light-grey);
 }
 
 .blog-card h5 {
     font-weight: 400;
-    font-size: 16px;
-    color: grey;
 }
 
 @media (max-width: 440px) {
