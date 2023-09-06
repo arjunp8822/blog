@@ -56,7 +56,7 @@ const BlogPost = () => {
     } catch (e) {
       console.log(e);
     }
-    navigate("/");
+    window.location.reload();
     setEditState(false);
   };
 
@@ -73,22 +73,23 @@ const BlogPost = () => {
             />
           </h1>
           <div className="blog-post-main">
-            <label htmlFor="category">Choose a category:</label>
-            <select
-              name="category"
-              id="category"
-              value={editCategory}
-              onChange={(e) => setEditCategory(e.target.value)}
-              placeholder={blog?.category}
-            >
-              <option value="HTML">HTML</option>
-              <option value="CSS">CSS</option>
-              <option value="JavaScript">JavaScript</option>
-              <option value="React">React</option>
-              <option value="Personal">Personal</option>
-              <option value="Other">Other</option>
-            </select>
-            <span className="blog-post-date">19 January 2023</span>
+            <div className="category-container">
+              <label htmlFor="category">Choose a category:</label>
+              <select
+                name="category"
+                id="category"
+                value={editCategory}
+                onChange={(e) => setEditCategory(e.target.value)}
+                placeholder={blog?.category}
+              >
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="React">React</option>
+                <option value="Personal">Personal</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
           </div>
           <div className="blog-post-img-container">
             <img src={blog?.img} alt={blog?.title} />
