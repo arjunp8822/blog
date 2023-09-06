@@ -13,6 +13,7 @@
     border: none;
     background-color: #fff;
     font-size: 16px;
+    color: var(--light-grey);
 }
 
 .category-container {
@@ -34,6 +35,24 @@
     resize: none;
     height: 60vh;
     font-size: 16px;
+}
+
+select {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: var(--border-radius);
+}
+
+input::file-selector-button {
+  padding: 10px;
+  border: thin solid var(--grey);
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  color: var(--light-grey);
+}
+
+select, input::file-selector-button:hover {
+    cursor: pointer;
 }
 
 .create-button-container {

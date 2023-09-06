@@ -63,7 +63,7 @@ const BlogPost = () => {
   return (
     <div className="container blog-post">
       {editState ? (
-        <div>
+        <div className="blog-post-container">
           <h1>
             <input
               type="text"
@@ -110,11 +110,17 @@ const BlogPost = () => {
           </p>
         </div>
       ) : (
-        <div>
+        <div className="blog-post-container">
           <h1>{blog?.title}</h1>
           <div className="blog-post-main">
-            <span className="blog-post-category">JavaScript</span>
-            <span className="blog-post-date">19 January 2023</span>
+            <span className="blog-post-category">{blog?.category}</span>
+            <span className="blog-post-date">
+              {new Date(blog?.updatedAt).toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </span>
           </div>
           <div className="blog-post-img-container">
             <img src={blog?.img} alt={blog?.title} />
@@ -123,12 +129,14 @@ const BlogPost = () => {
           <p>{blog?.content}</p>
         </div>
       )}
-      {editState ? (
-        <button onClick={editHandler}>Done</button>
-      ) : (
-        <button onClick={() => setEditState(true)}>Edit</button>
-      )}
-      <button onClick={deleteHandler}>Delete</button>
+      <div className="blog-post-button-container">
+        {editState ? (
+          <button onClick={editHandler}>Done</button>
+        ) : (
+          <button onClick={() => setEditState(true)}>Edit</button>
+        )}
+        <button onClick={deleteHandler}>Delete</button>
+      </div>
     </div>
   );
 };

@@ -54,6 +54,12 @@ h5 {
     color: var(--grey);
 }
 
+p {
+    font-size: 16px;
+    color: var(--grey);
+    white-space: pre-line;
+}
+
 button:hover {
     cursor: pointer;
 }
