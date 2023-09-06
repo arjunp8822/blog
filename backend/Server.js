@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const fs = require("fs");
 const mongoose = require("mongoose");
 const blogModel = require("./schemas/blogSchema");
 const bodyParser = require("body-parser");
@@ -78,7 +79,10 @@ app.post("/blogs", upload.single("blogPhoto"), async (req, res) => {
 app.delete("/blogs/:id", async (req, res) => {
   const { id } = req.params;
   try {
+    const blogImg = await blogModel.findById(id);
     const deletedBlog = await blogModel.findByIdAndDelete(id);
+    const imgLink = blogImg?.img.match(/.*\/(.*)$/)[1];
+    fs.unlinkSync(`../frontend/public/assets/${imgLink}`);
     return res.json({ message: "blog deleted" });
   } catch (e) {
     console.log(e);
