@@ -40,3 +40,15 @@ nav ul li:hover {
     color: #fff;
     font-weight: 600;
 }
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+    }
+
+    .logo {
+        background: var(--blue-linear);
+        width: 40px;
+        height: 40px;
+    }
+}

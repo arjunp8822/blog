@@ -17,6 +17,7 @@ a {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 40px;
 }
 
 :root {
@@ -60,6 +61,36 @@ p {
     white-space: pre-line;
 }
 
+a {
+    font-size: 16px;
+}
+
 button:hover {
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+    
+    h5 {
+        font-size: 16px;
+    }
+    
+    p {
+        font-size: 14px;
+    }
+
+    a {
+        font-size: 14px;
+    }
 }

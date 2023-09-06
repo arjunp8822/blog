@@ -114,8 +114,8 @@ const BlogPost = () => {
         <div className="blog-post-container">
           <h1>{blog?.title}</h1>
           <div className="blog-post-main">
-            <span className="blog-post-category">{blog?.category}</span>
-            <span className="blog-post-date">
+            <span className="blog-card-category">{blog?.category}</span>
+            <span className="blog-card-date">
               {new Date(blog?.updatedAt).toLocaleDateString("en-us", {
                 year: "numeric",
                 month: "long",
