@@ -7,7 +7,9 @@ const Home = () => {
   const [blogData, setBlogData] = useState([]);
 
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:4000/blogs");
+    const response = await axios.get(
+      "https://blog-api-lpu5.onrender.com/blogs"
+    );
     const data = response.data;
     setBlogData(data);
   };

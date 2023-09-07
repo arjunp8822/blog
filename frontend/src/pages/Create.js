@@ -22,7 +22,7 @@ const Create = () => {
     formData.append("content", content);
     try {
       const response = await axios.post(
-        "http://localhost:4000/blogs",
+        "https://blog-api-lpu5.onrender.com/blogs",
         formData
       );
     } catch (e) {

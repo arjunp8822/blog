@@ -15,7 +15,9 @@ const BlogPost = () => {
   const navigate = useNavigate();
 
   const fetchData = async () => {
-    const response = await axios.get(`http://localhost:4000/blogs/${id}`);
+    const response = await axios.get(
+      `https://blog-api-lpu5.onrender.com/blogs/${id}`
+    );
     const data = await response.data;
     setBlog(data);
   };
@@ -33,7 +35,9 @@ const BlogPost = () => {
 
   const deleteHandler = async (e) => {
     e.preventDefault();
-    const response = await axios.delete(`http://localhost:4000/blogs/${id}`);
+    const response = await axios.delete(
+      `https://blog-api-lpu5.onrender.com/blogs/${id}`
+    );
     navigate("/");
   };
 
@@ -47,7 +51,7 @@ const BlogPost = () => {
     };
     try {
       const response = await axios.put(
-        `http://localhost:4000/blogs/${id}`,
+        `https://blog-api-lpu5.onrender.com/blogs/${id}`,
         updatedBlog,
         {
           headers: { accept: "*/*", "Content-Type": "application/json" },
