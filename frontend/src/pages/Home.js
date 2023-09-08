@@ -25,7 +25,9 @@ const Home = () => {
         {blogData.map((blog) => (
           <article key={blog._id} className="blog-card">
             <Link to={`/${blog._id}`} className="img-overlay">
-              <img src={blog.img} />
+              <img
+                src={`https://res.cloudinary.com/dn3yvtawe/image/upload/${blog.img}`}
+              />
             </Link>
             <div className="blog-card-main">
               <span className="blog-card-category">{blog.category}</span>

@@ -96,7 +96,10 @@ const BlogPost = () => {
             </div>
           </div>
           <div className="blog-post-img-container">
-            <img src={blog?.img} alt={blog?.title} />
+            <img
+              src={`https://res.cloudinary.com/dn3yvtawe/image/upload/${blog?.img}`}
+              alt={blog?.title}
+            />
           </div>
           <h3>
             <input
@@ -128,7 +131,10 @@ const BlogPost = () => {
             </span>
           </div>
           <div className="blog-post-img-container">
-            <img src={blog?.img} alt={blog?.title} />
+            <img
+              src={`https://res.cloudinary.com/dn3yvtawe/image/upload/${blog?.img}`}
+              alt={blog?.title}
+            />
           </div>
           <h3>{blog?.description}</h3>
           <p>{blog?.content}</p>

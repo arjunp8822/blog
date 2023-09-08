@@ -5,16 +5,13 @@ const mongoose = require("mongoose");
 const blogModel = require("./schemas/blogSchema");
 const bodyParser = require("body-parser");
 const multer = require("multer");
-const cors = require("cors");
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "../frontend/public/assets");
-  },
   filename: function (req, file, cb) {
     cb(null, file.fieldname + "-" + Date.now());
   },
 });
 const upload = multer({ storage: storage });
+const cors = require("cors");
 require("dotenv").config();
 
 // mongodb connection
@@ -57,14 +54,15 @@ app.get("/blogs/:id", async (req, res) => {
 
 // post requests
 
-app.post("/blogs", upload.single("blogPhoto"), async (req, res) => {
+app.post("/blogs", upload.single("file"), async (req, res) => {
   const blog = {
     title: req.body.title,
     description: req.body.description,
-    img: `../assets/${req.file.filename}`,
+    img: req.body.publicId,
     content: req.body.content,
     category: req.body.category,
   };
+  console.log(blog);
   try {
     const newBlog = new blogModel(blog);
     await newBlog.save();

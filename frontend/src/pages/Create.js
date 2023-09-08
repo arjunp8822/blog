@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Create.css";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 const Create = () => {
   const [title, setTitle] = useState(null);
@@ -12,17 +13,32 @@ const Create = () => {
 
   const navigate = useNavigate();
 
+  const handleImg = async (e) => {
+    setFile(e.target.files[0]);
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("category", category);
-    formData.append("blogPhoto", file);
-    formData.append("content", content);
     try {
+      const formData = new FormData();
+
+      formData.append("file", file);
+      formData.append("upload_preset", "sk23ypsf");
+      formData.append("title", title);
+      formData.append("category", category);
+      formData.append("description", description);
+      formData.append("content", content);
+
+      const imageResponse = await axios.post(
+        "https://api.cloudinary.com/v1_1/dn3yvtawe/image/upload",
+        formData
+      );
+
+      const publicId = await imageResponse.data.public_id;
+      formData.append("publicId", publicId);
+
       const response = await axios.post(
-        "https://blog-api-lpu5.onrender.com/blogs",
+        "http://localhost:4000/blogs",
         formData
       );
     } catch (e) {
@@ -43,12 +59,14 @@ const Create = () => {
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
           maxLength="20"
+          required
         />
         <input
           type="text"
           placeholder="Description"
           onChange={(e) => setDescription(e.target.value)}
           maxLength="60"
+          required
         />
         <div className="category-container">
           <label htmlFor="category">Choose a category:</label>
@@ -57,6 +75,7 @@ const Create = () => {
             id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
+            required
           >
             <option value="HTML">HTML</option>
             <option value="CSS">CSS</option>
@@ -66,14 +85,11 @@ const Create = () => {
             <option value="Other">Other</option>
           </select>
         </div>
-        <input
-          type="file"
-          filename={file}
-          onChange={(e) => setFile(e.target.files[0])}
-        />
+        <input type="file" filename={file} onChange={handleImg} required />
         <textarea
           onChange={(e) => setContent(e.target.value)}
           placeholder="Write content here"
+          required
         ></textarea>
         <div className="create-button-container">
           <button>Create</button>
